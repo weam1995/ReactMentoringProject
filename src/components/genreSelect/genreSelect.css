@@ -1,0 +1,26 @@
+.genreList{
+    list-style: none; 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.listItem {
+    color: #FFFFFF;
+    width: 125px;
+    height: 50px;
+    transition: background-position-x 0.9s linear;
+    text-align: center;
+  
+    a {
+      font-size: 22px;
+      text-decoration: none;
+      transition: all 0.45s;
+    }
+    a:hover{
+        color:lightblue;
+    }
+}
+.selectedItem{
+    color:red;
+}
