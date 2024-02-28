@@ -1,33 +1,31 @@
 .pageLayout {
-background: #232323;
-height: 100%;
-width: 100%;
-left: 0;
-top: 0;
-overflow: hidden;
-position: fixed;
-display: flex;
-flex-direction: column;
-text-align: center;
-align-items: center;
+  background: #232323;
+  top: 0px;
+  left: 0px;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
 }
 
 .header {
-  margin:2%;
-  width:70%;
+  margin: 2%;
+  height: 30%;
 }
 
 .moviesList {
   width: 95%;
   border-color: red;
-  height: 70%;
+  min-height: fit-content;
   background-color: wheat;
 }
 
-.boarderRectangle{
-width: 95%;
-height: 10px;
-background: #888888;
-mix-blend-mode: normal;
-opacity: 0.5;
+.boarderRectangle {
+  width: 95%;
+  height: 10px;
+  background: #888888;
+  mix-blend-mode: normal;
+  opacity: 0.5;
 }
