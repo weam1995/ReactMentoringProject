@@ -17,12 +17,12 @@ const GenreSelect = ({
           <li
             className="genreListItem"
             key={genre}
-            onClick={onSelect(genre)}
+            onClick={() => onSelect(genre)}
             data-testid="genreListItem"
           >
             <a
               href="#"
-              className={genre === selectedGenre ? 'selectedItem' : ''}
+              className={genre === selectedGenre ? 'highlightedItem' : ''}
             >
               {genre}
             </a>

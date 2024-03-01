@@ -1,28 +1,28 @@
 import './searchForm.css';
-import { useState } from 'react';
+import { useState, useRef, FormEvent } from 'react';
 
 interface SearchFormProps {
   initialSearchQuery: string;
-  onSearch: (event: React.FormEvent<HTMLFormElement>) => void;
+  onSearch: (inputData: string) => void;
 }
 
 const SearchForm = ({ initialSearchQuery, onSearch }: SearchFormProps) => {
-  const [searchText, setSearchText] = useState(initialSearchQuery);
-  const handleSearchTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target) {
-      e.preventDefault();
-      setSearchText(e.target.value);
-    }
+  const inputElement = useRef<HTMLInputElement>(null);
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (inputElement.current) onSearch(inputElement.current.value);
   };
+  //const [searchText, setSearchText] = useState(initialSearchQuery);
   return (
-    <form className="formContainer" onSubmit={onSearch}>
+    <form className="formContainer" onSubmit={handleSubmit}>
       <input
         id="searchInput"
         type="text"
+        ref={inputElement}
         className="searchInput"
         placeholder="What are you looking for ?"
-        value={searchText}
-        onChange={handleSearchTextChange}
+        defaultValue={initialSearchQuery}
       />
       <button type="submit" className="searchButton">
         Search

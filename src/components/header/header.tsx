@@ -1,8 +1,8 @@
 import SearchForm from '../searchForm/searchForm';
 
 const Header = () => {
-  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
-    console.log('Search is Working !!');
+  const handleSearch = (inputData: string) => {
+    console.log(inputData);
   };
 
   return (
