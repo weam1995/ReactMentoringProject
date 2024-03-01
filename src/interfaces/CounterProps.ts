@@ -1,0 +1,3 @@
+interface CounterProps {
+    initialValue: number,
+}
