@@ -1,8 +1,8 @@
 import './genreSelect.css';
 interface GenreSelectProps {
-  genreList: string[];
+  genreList: Genre[];
   selectedGenre: string;
-  onSelect: (genre: string) => React.MouseEventHandler<HTMLLIElement>;
+  onSelect: (genre: Genre) => React.MouseEventHandler<HTMLLIElement>;
 }
 
 const GenreSelect = ({
@@ -14,7 +14,12 @@ const GenreSelect = ({
     <ul className="genreList">
       {genreList.map((genre) => {
         return (
-          <li className="genreListItem" key={genre} onClick={onSelect(genre)}>
+          <li
+            className="genreListItem"
+            key={genre}
+            onClick={onSelect(genre)}
+            data-testid="genreListItem"
+          >
             <a
               href="#"
               className={genre === selectedGenre ? 'selectedItem' : ''}

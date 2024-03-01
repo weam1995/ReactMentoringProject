@@ -17,6 +17,7 @@ const SearchForm = ({ initialSearchQuery, onSearch }: SearchFormProps) => {
   return (
     <form className="formContainer" onSubmit={onSearch}>
       <input
+        id="searchInput"
         type="text"
         className="searchInput"
         placeholder="What are you looking for ?"

@@ -29,6 +29,7 @@ class Counter extends React.Component<CounterProps, CounterState> {
       'button',
       {
         onClick: this.incrementCounter,
+        name: 'Increment',
       },
       'Increment Counter'
     );
@@ -36,6 +37,7 @@ class Counter extends React.Component<CounterProps, CounterState> {
       'button',
       {
         onClick: this.decrementCounter,
+        name: 'Decrement',
       },
       'Decrement Counter'
     );

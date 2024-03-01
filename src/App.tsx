@@ -1,23 +1,28 @@
 import { useState } from 'react';
 import Counter from './components/counter/counter';
 import Header from './components/header/header';
+import GenreSelect from './components/genreSelect/genreSelect';
 import './App.css';
 
 function App() {
-  let genreList = ['Horror', 'Romantic', 'Thrilling', 'Comedy'];
+  const genreList: Genre[] = ['Horror', 'Romantic', 'Thrilling', 'Comedy'];
   const [selectedGenre, setSelectedGenre] = useState('Horror');
 
-  const onSelectGenre = (genre: string) => () => {
+  const onSelectGenre = (genre: Genre) => () => {
     setSelectedGenre(genre);
   };
   return (
     <div className="pageLayout">
       <Counter initialValue={1} />
-      <Header
-        genreList={genreList}
-        selectedGenre={selectedGenre}
-        onSelect={onSelectGenre}
-      />
+      <Header />
+      <div className="genreContainer">
+        <GenreSelect
+          genreList={genreList}
+          selectedGenre={selectedGenre}
+          onSelect={onSelectGenre}
+        />
+      </div>
+
       <div className="moviesList">
         <p> List of {selectedGenre} Movies </p>
       </div>
