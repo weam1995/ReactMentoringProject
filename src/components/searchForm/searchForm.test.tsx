@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest';
 import { screen, render, fireEvent, waitFor } from '@testing-library/react';
 import SearchForm from './searchForm';
-import user from '@testing-library/user-event';
+import user, { userEvent } from '@testing-library/user-event';
 import { vi } from 'vitest';
 
 let initialSearchQuery: string;
@@ -40,9 +40,8 @@ describe('Search Form tests', () => {
     render(
       <SearchForm initialSearchQuery={initialSearchQuery} onSearch={onSearch} />
     );
-    screen.debug();
     const searchbox = screen.getByRole('textbox');
-    fireEvent.keyDown(searchbox, { key: 'Enter', keyCode: 13 });
+    userEvent.type(searchbox, '{enter}');
     expect(onSearch).toHaveBeenCalledWith(initialSearchQuery);
   });
 });

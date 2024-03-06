@@ -14,13 +14,6 @@ const SearchForm = ({ initialSearchQuery, onSearch }: SearchFormProps) => {
     if (inputElement.current) onSearch(inputElement.current.value);
   };
 
-  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      handleSubmit(e as any);
-    }
-  };
-
   return (
     <form className="formContainer" onSubmit={handleSubmit}>
       <input
@@ -30,7 +23,7 @@ const SearchForm = ({ initialSearchQuery, onSearch }: SearchFormProps) => {
         className="searchInput"
         placeholder="What are you looking for ?"
         defaultValue={initialSearchQuery}
-        onKeyDown={handleKeyDown}
+        // onKeyDown={handleKeyDown}
       />
       <button type="submit" className="searchButton">
         Search
