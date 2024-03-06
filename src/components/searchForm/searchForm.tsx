@@ -9,11 +9,18 @@ interface SearchFormProps {
 const SearchForm = ({ initialSearchQuery, onSearch }: SearchFormProps) => {
   const inputElement = useRef<HTMLInputElement>(null);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (inputElement.current) onSearch(inputElement.current.value);
   };
-  //const [searchText, setSearchText] = useState(initialSearchQuery);
+
+  // const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  //   if (e.key === 'Enter'){
+  //     e.preventDefault();
+  //     handleSubmit(formEvent);
+  //   }
+  // };
+
   return (
     <form className="formContainer" onSubmit={handleSubmit}>
       <input
@@ -23,6 +30,7 @@ const SearchForm = ({ initialSearchQuery, onSearch }: SearchFormProps) => {
         className="searchInput"
         placeholder="What are you looking for ?"
         defaultValue={initialSearchQuery}
+        // onKeyDown={handleKeyDown}
       />
       <button type="submit" className="searchButton">
         Search

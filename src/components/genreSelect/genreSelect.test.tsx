@@ -1,14 +1,23 @@
 import { describe, expect, test } from 'vitest';
-import { screen, render } from '@testing-library/react';
+import {
+  screen,
+  render,
+  fireEvent,
+  getByTestId,
+  waitFor,
+} from '@testing-library/react';
 import GenreSelect from './genreSelect';
 import user from '@testing-library/user-event';
 import { vi } from 'vitest';
 
+let genreList: Genre[];
 describe('Genre Select tests', () => {
-  test('check component renders all genres passed in props', async () => {
-    user.setup();
+  beforeEach(() => {
+    genreList = ['Horror', 'Comedy', 'Romantic'];
+  });
+
+  test('check all genres are displayed correctly', () => {
     const SelectGenreMockHandler = vi.fn();
-    const genreList: Genre[] = ['Horror', 'Comedy', 'Romantic'];
     render(
       <GenreSelect
         genreList={genreList}
@@ -16,14 +25,14 @@ describe('Genre Select tests', () => {
         onSelect={SelectGenreMockHandler}
       />
     );
-    const genreListItems = screen.getAllByTestId('genreListItem');
-    expect(genreListItems.length).toBe(genreList.length);
+    genreList.map((genre) => {
+      const genreListItem = screen.getByTestId(`genreListItem-${genre}`);
+      expect(genreListItem).toBeInTheDocument();
+    });
   });
 
-  test('check component highlights the selected genre', async () => {
-    user.setup();
+  test('check component highlights the selected genre', () => {
     const SelectGenreMockHandler = vi.fn();
-    const genreList: Genre[] = ['Horror', 'Comedy', 'Romantic'];
     const selectedGenre = genreList[0];
     render(
       <GenreSelect
@@ -39,7 +48,6 @@ describe('Genre Select tests', () => {
   test('check clicking on genre gets the correct genre ', async () => {
     user.setup();
     const SelectGenreMockHandler = vi.fn();
-    const genreList: Genre[] = ['Horror', 'Comedy', 'Romantic'];
     render(
       <GenreSelect
         genreList={genreList}
@@ -47,8 +55,8 @@ describe('Genre Select tests', () => {
         onSelect={SelectGenreMockHandler}
       />
     );
-    const genreListItems = screen.getAllByTestId('genreListItem');
-    await user.click(genreListItems[1]);
+    const genreListItem = screen.getByTestId(`genreListItem-${genreList[1]}`);
+    await user.click(genreListItem);
     expect(SelectGenreMockHandler).toBeCalledTimes(1);
   });
 });

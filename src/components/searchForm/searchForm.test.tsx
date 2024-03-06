@@ -1,42 +1,50 @@
 import { describe, expect, test } from 'vitest';
-import { screen, render, fireEvent } from '@testing-library/react';
+import { screen, render, fireEvent, waitFor } from '@testing-library/react';
 import SearchForm from './searchForm';
 import user from '@testing-library/user-event';
 import { vi } from 'vitest';
 
+let initialSearchQuery: string;
+
 describe('Search Form tests', () => {
-  test('check component initial search query correctly', async () => {
-    user.setup();
+  beforeEach(() => {
+    initialSearchQuery = 'Hello World';
+  });
+  test('check initial search input displayed correctly', () => {
     const SearchHandlerMock = vi.fn();
     render(
       <SearchForm
-        initialSearchQuery="Hello World"
+        initialSearchQuery={initialSearchQuery}
         onSearch={SearchHandlerMock}
       />
     );
     const searchbox = screen.getByRole('textbox');
-    expect(searchbox).toHaveValue('Hello World');
+    expect(searchbox).toHaveValue(initialSearchQuery);
   });
 
   test('check on change is called with correct value on Click Search', async () => {
     user.setup();
     const onSearch = vi.fn();
-    render(<SearchForm initialSearchQuery="" onSearch={onSearch} />);
-    const searchbox = screen.getByRole('textbox');
-    await user.type(searchbox, 'Friends');
+    render(
+      <SearchForm initialSearchQuery={initialSearchQuery} onSearch={onSearch} />
+    );
     const searchButton = screen.getByRole('button', {
       name: 'Search',
     });
     await user.click(searchButton);
-    expect(searchbox).toHaveValue('Friends');
+    expect(onSearch).toHaveBeenCalledWith(initialSearchQuery);
   });
 
-  test('check on change is called with correct value on pressing Enter ', () => {
-    user.setup();
+  test('check on change is called with correct value on pressing Enter ', async () => {
+    //user.setup();
     const onSearch = vi.fn();
-    render(<SearchForm initialSearchQuery="Hello Weam" onSearch={onSearch} />);
+    render(
+      <SearchForm initialSearchQuery={initialSearchQuery} onSearch={onSearch} />
+    );
+    screen.debug();
     const searchbox = screen.getByRole('textbox');
     fireEvent.keyPress(searchbox, { key: 'Enter', keyCode: 13 });
-    expect(searchbox).toHaveValue('Hello Weam');
+    await waitFor(() => expect(onSearch).toHaveBeenCalledTimes(1));
+    //expect(onSearch).toHaveBeenCalledWith(initialSearchQuery);
   });
 });

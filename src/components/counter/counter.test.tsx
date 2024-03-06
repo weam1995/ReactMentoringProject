@@ -7,16 +7,24 @@ describe('Counter', () => {
     render(<Counter initialValue={1} />);
     const counterElement = screen.getByRole('heading', { level: 1 });
     expect(counterElement).toBeInTheDocument();
-    //const incrementButton =
+    const incrementButton = screen.getByRole('button', {
+      name: 'Increment Counter',
+    });
+    expect(incrementButton).toBeInTheDocument();
+    const decrementButton = screen.getByRole('button', {
+      name: 'Decrement Counter',
+    });
+    expect(decrementButton).toBeInTheDocument();
   });
 
-  test('renders a count of 1', () => {
-    render(<Counter initialValue={1} />);
+  test('renders the initial value of counter correctly', async () => {
+    user.setup();
+    const initialValue = 1;
+    render(<Counter initialValue={initialValue} />);
     const counterElement = screen.getByRole('heading', { level: 1 });
-    expect(counterElement).toHaveTextContent('1');
+    expect(counterElement).toHaveTextContent(initialValue.toString());
   });
-
-  test('renders a count of 2 after clicking on increment button', async () => {
+  test('increments count by 1 on clicking increment button', async () => {
     user.setup();
     render(<Counter initialValue={1} />);
     const incrementButton = screen.getByRole('button', {
@@ -26,17 +34,7 @@ describe('Counter', () => {
     const counterElement = screen.getByRole('heading', { level: 1 });
     expect(counterElement).toHaveTextContent('2');
   });
-  test('renders a count of 2 after clicking on increment button', async () => {
-    user.setup();
-    render(<Counter initialValue={1} />);
-    const incrementButton = screen.getByRole('button', {
-      name: 'Increment Counter',
-    });
-    await user.click(incrementButton);
-    const counterElement = screen.getByRole('heading', { level: 1 });
-    expect(counterElement).toHaveTextContent('2');
-  });
-  test('renders a count of 0 after clicking on decrement button', async () => {
+  test('decrement count by 1 on clicking decrement button', async () => {
     user.setup();
     render(<Counter initialValue={1} />);
     const incrementButton = screen.getByRole('button', {
