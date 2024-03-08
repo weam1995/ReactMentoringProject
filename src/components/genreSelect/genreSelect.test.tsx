@@ -42,7 +42,7 @@ describe('Genre Select tests', () => {
       />
     );
     const selectedGenreItem = screen.getByRole('link', { name: selectedGenre });
-    expect(selectedGenreItem).toHaveClass('highlightedItem');
+    expect(selectedGenreItem).toHaveClass('selectedItem');
   });
 
   test('check clicking on genre gets the correct genre ', async () => {

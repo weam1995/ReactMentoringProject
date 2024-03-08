@@ -1,0 +1,51 @@
+.sortControlContainer {
+  display: inline-flex;
+  color: white;
+  align-self: center;
+  min-width: fit-content;
+  max-width: 45%;
+  gap: 10px;
+  align-items: center;
+}
+.sortOptionsContainer {
+  min-width: 200px;
+  position: relative;
+  color: white;
+}
+
+select {
+  appearance: none;
+  /*  safari  */
+  -webkit-appearance: none;
+  /*  other styles for aesthetics */
+  width: 100%;
+  font-size: 0.9rem;
+  padding: 0.3em 3em 0.3em 0.3em;
+  border: none;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+.sortOptionsContainer::before,
+.sortOptionsContainer::after {
+  --size: 0.3rem;
+  content: '';
+  position: absolute;
+  right: 1rem;
+  pointer-events: none;
+}
+
+.sortOptionsContainer::before {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid #f65261;
+  top: 40%;
+}
+
+.sortOptionsContainer::after {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid #f65261;
+  top: 55%;
+}

@@ -19,7 +19,8 @@
   width: 95%;
   border-color: red;
   min-height: fit-content;
-  background-color: wheat;
+  background-color: #232323;
+  color: #ffffff;
 }
 
 .boarderRectangle {
@@ -28,4 +29,19 @@
   background: #888888;
   mix-blend-mode: normal;
   opacity: 0.5;
+}
+.white {
+  color: white;
+}
+.gray {
+  color: #555555;
+}
+.red {
+  color: #f65261;
+}
+.genreWithSortContainer {
+  display: inline-flex;
+  justify-content: space-between;
+  align-self: normal;
+  width: 95%;
 }

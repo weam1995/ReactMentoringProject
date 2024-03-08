@@ -7,7 +7,7 @@ const meta: Meta<typeof Counter> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const BasicCounter: Story = {
+export const DefaultCounter: Story = {
   args: {
     initialValue: 1,
   },

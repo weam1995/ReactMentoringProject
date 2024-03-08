@@ -2,7 +2,7 @@ import './genreSelect.css';
 interface GenreSelectProps {
   genreList: Genre[];
   selectedGenre: string;
-  onSelect: (genre: Genre) => React.MouseEventHandler<HTMLLIElement>;
+  onSelect: (genre: Genre) => void;
 }
 
 const GenreSelect = ({
@@ -17,7 +17,9 @@ const GenreSelect = ({
           <li
             className="genreListItem"
             key={genre}
-            onClick={() => onSelect(genre)}
+            onClick={() => {
+              onSelect(genre);
+            }}
             data-testid={`genreListItem-${genre}`}
           >
             <a
