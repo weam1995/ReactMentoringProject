@@ -1,5 +1,5 @@
 import './searchForm.css';
-import { useState, useRef, FormEvent, KeyboardEvent } from 'react';
+import { useState, useRef, FormEvent } from 'react';
 
 interface SearchFormProps {
   initialSearchQuery: string;
@@ -9,10 +9,17 @@ interface SearchFormProps {
 const SearchForm = ({ initialSearchQuery, onSearch }: SearchFormProps) => {
   const inputElement = useRef<HTMLInputElement>(null);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (inputElement.current) onSearch(inputElement.current.value);
   };
+
+  // const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  //   if (e.key === 'Enter'){
+  //     e.preventDefault();
+  //     handleSubmit(formEvent);
+  //   }
+  // };
 
   return (
     <form className="formContainer" onSubmit={handleSubmit}>
