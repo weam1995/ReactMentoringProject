@@ -8,9 +8,11 @@ function App() {
   const genreList: Genre[] = ['Horror', 'Romantic', 'Thrilling', 'Comedy'];
   const [selectedGenre, setSelectedGenre] = useState('Horror');
 
-  const onSelectGenre = (genre: Genre) => () => {
+  const onSelectGenre = (genre: Genre) => {
+    console.log('set selected genre');
     setSelectedGenre(genre);
   };
+
   return (
     <div className="pageLayout">
       <Counter initialValue={1} />
