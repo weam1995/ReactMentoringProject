@@ -35,13 +35,13 @@ describe('Search Form tests', () => {
     expect(onSearch).toHaveBeenCalledWith(initialSearchQuery);
   });
 
-  test('check on change is called with correct value on pressing Enter ', () => {
+  test('check on change is called with correct value on pressing Enter ', async () => {
     const onSearch = vi.fn();
     render(
       <SearchForm initialSearchQuery={initialSearchQuery} onSearch={onSearch} />
     );
     const searchbox = screen.getByRole('textbox');
-    userEvent.type(searchbox, '{enter}');
+    await user.type(searchbox, '{enter}');
     expect(onSearch).toHaveBeenCalledWith(initialSearchQuery);
   });
 });

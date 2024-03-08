@@ -1,11 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import {
-  screen,
-  render,
-  fireEvent,
-  getByTestId,
-  waitFor,
-} from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
 import GenreSelect from './genreSelect';
 import user from '@testing-library/user-event';
 import { vi } from 'vitest';
