@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import Counter from './components/counter/counter';
-import Header from './components/header/header';
-import GenreSelect from './components/genreSelect/genreSelect';
+import Counter from './components/counter/Counter';
+import Header from './components/header/Header';
+import GenreSelect from './components/genreSelect/GenreSelect';
 import './App.css';
 import MovieTitle from './components/movieTitle/movieTitle';
-import MovieDetails from './components/movieDetails/movieDetails';
-import SortControl from './components/sortControl/sortControl';
+import MovieDetails from './components/movieDetails/MovieDetails';
+import SortControl from './components/sortControl/SortControl';
 
 function App() {
   const genreList: Genre[] = ['Horror', 'Romantic', 'Thrilling', 'Comedy'];
@@ -19,9 +19,9 @@ function App() {
     console.log('set selected genre');
     setSelectedGenre(genre);
   };
-  const onSelectSortOption = (sortOption: movieSortOption) => () => {
+  const onSelectSortOption = (sortOption: movieSortOption) => {
     setSelectedSortOption(sortOption);
-    console.log('sort option changed');
+    console.log('sort option changed to ' + sortOption);
   };
   const movieClickHandler = () => {
     console.log('Movie Selected');
@@ -66,7 +66,7 @@ function App() {
         releaseYear={2010}
         rating={8.9}
         duration={260}
-        description=' married woman realizes how unhappy her marriage really is, and that her life needs to go in a different direction. After a painful divorce, she takes off on a round-the-world journey to "find herself".'
+        description=' A Married woman realizes how unhappy her marriage really is, and that her life needs to go in a different direction. After a painful divorce, she takes off on a round-the-world journey to "find herself".'
       />
     </div>
   );

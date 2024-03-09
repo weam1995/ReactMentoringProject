@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import GenreSelect from '../components/genreSelect/genreSelect';
+import GenreSelect from '../components/genreSelect/GenreSelect';
 import { fireEvent, userEvent, within } from '@storybook/testing-library';
 
 const meta: Meta<typeof GenreSelect> = {

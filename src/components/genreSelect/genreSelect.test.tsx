@@ -6,7 +6,7 @@ import {
   getByTestId,
   waitFor,
 } from '@testing-library/react';
-import GenreSelect from './genreSelect';
+import GenreSelect from './GenreSelect';
 import user from '@testing-library/user-event';
 import { vi } from 'vitest';
 

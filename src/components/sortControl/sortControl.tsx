@@ -1,5 +1,4 @@
 import './sortControl.css';
-import { useState, useRef, FormEvent } from 'react';
 
 interface SortControlProps {
   sortOptions: movieSortOption[];
@@ -8,19 +7,25 @@ interface SortControlProps {
 }
 
 const SortControl = (props: SortControlProps) => {
-  const onSelectHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    props.onSelect(e.target.value);
+  const onChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    console.log('Hi');
+    props.onSelect(e.target.value as movieSortOption);
   };
   return (
     <div className="sortControlContainer">
       <span>SORT BY</span>
       <div className="sortOptionsContainer">
-        <select onSelect={onSelectHandler}>
+        <select onChange={onChangeHandler}>
           {props.sortOptions.map((sortOption) => (
-            <option key={sortOption} value={sortOption}>
+            <option
+              data-testid={`sortOption:${sortOption}`}
+              key={sortOption}
+              value={sortOption}
+            >
               {sortOption}
             </option>
           ))}
+          *
         </select>
       </div>
     </div>

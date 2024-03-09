@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import SearchForm from '../components/searchForm/searchForm';
+import SearchForm from '../components/searchForm/SearchForm';
 import { fireEvent, userEvent, within } from '@storybook/testing-library';
 
 const meta: Meta<typeof SearchForm> = {

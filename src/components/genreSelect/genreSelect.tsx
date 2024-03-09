@@ -1,7 +1,7 @@
 import './genreSelect.css';
 interface GenreSelectProps {
   genreList: Genre[];
-  selectedGenre: string;
+  selectedGenre: Genre;
   onSelect: (genre: Genre) => void;
 }
 
