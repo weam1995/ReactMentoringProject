@@ -1,11 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import {
-  screen,
-  render,
-  fireEvent,
-  getByTestId,
-  waitFor,
-} from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
 import GenreSelect from './GenreSelect';
 import user from '@testing-library/user-event';
 import { vi } from 'vitest';
@@ -42,7 +36,7 @@ describe('Genre Select tests', () => {
       />
     );
     const selectedGenreItem = screen.getByRole('link', { name: selectedGenre });
-    expect(selectedGenreItem).toHaveClass('selectedItem');
+    expect(selectedGenreItem).toHaveClass('selected-item');
   });
 
   test('check clicking on genre gets the correct genre ', async () => {

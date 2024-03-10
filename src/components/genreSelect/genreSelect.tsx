@@ -1,4 +1,4 @@
-import './genreSelect.css';
+import './genre-select.css';
 interface GenreSelectProps {
   genreList: Genre[];
   selectedGenre: Genre;
@@ -11,11 +11,11 @@ const GenreSelect = ({
   onSelect,
 }: GenreSelectProps) => {
   return (
-    <ul className="genreList">
+    <ul className="genre-list">
       {genreList.map((genre) => {
         return (
           <li
-            className="genreListItem"
+            className="genre-list__item"
             key={genre}
             onClick={() => {
               onSelect(genre);
@@ -24,7 +24,7 @@ const GenreSelect = ({
           >
             <a
               href="#"
-              className={genre === selectedGenre ? 'selectedItem' : ''}
+              className={genre === selectedGenre ? 'selected-item' : ''}
             >
               {genre}
             </a>

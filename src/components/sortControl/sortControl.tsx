@@ -1,31 +1,30 @@
-import './sortControl.css';
+import './sort-control.css';
 
 interface SortControlProps {
-  sortOptions: movieSortOption[];
   defaultSelection: movieSortOption;
   onSelect: (selectedOption: movieSortOption) => void;
 }
 
-const SortControl = (props: SortControlProps) => {
+const SortControl = ({ defaultSelection, onSelect }: SortControlProps) => {
+  const movieSortOptions: movieSortOption[] = ['Release Date', 'Title'];
+
   const onChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log('Hi');
-    props.onSelect(e.target.value as movieSortOption);
+    onSelect(e.target.value as movieSortOption);
   };
   return (
-    <div className="sortControlContainer">
+    <div className="sort-control-container">
       <span>SORT BY</span>
-      <div className="sortOptionsContainer">
-        <select onChange={onChangeHandler}>
-          {props.sortOptions.map((sortOption) => (
+      <div className="options-container">
+        <select onChange={onChangeHandler} defaultValue={defaultSelection}>
+          {movieSortOptions.map((option) => (
             <option
-              data-testid={`sortOption:${sortOption}`}
-              key={sortOption}
-              value={sortOption}
+              data-testid={`sortOption:${option}`}
+              key={option}
+              value={option}
             >
-              {sortOption}
+              {option}
             </option>
           ))}
-          *
         </select>
       </div>
     </div>

@@ -3,7 +3,7 @@ import Counter from './components/counter/Counter';
 import Header from './components/header/Header';
 import GenreSelect from './components/genreSelect/GenreSelect';
 import './App.css';
-import MovieTitle from './components/movieTitle/movieTitle';
+import MovieTitle from './components/movieTitle/MovieTitle';
 import MovieDetails from './components/movieDetails/MovieDetails';
 import SortControl from './components/sortControl/SortControl';
 
@@ -16,19 +16,16 @@ function App() {
     movieSortOptions[0]
   );
   const onSelectGenre = (genre: Genre) => {
-    console.log('set selected genre');
     setSelectedGenre(genre);
   };
   const onSelectSortOption = (sortOption: movieSortOption) => {
     setSelectedSortOption(sortOption);
-    console.log('sort option changed to ' + sortOption);
   };
-  const movieClickHandler = () => {
-    console.log('Movie Selected');
-  };
+  const movieClickHandler = (e: React.MouseEvent<HTMLImageElement>) => {};
+
   return (
-    <div className="pageLayout">
-      {/* <Counter initialValue={1} />
+    <div className="page-layout">
+      <Counter initialValue={1} />
       <Header />
       <div className="genreContainer">
         <GenreSelect
@@ -38,7 +35,7 @@ function App() {
         />
       </div>
 
-      <div className="moviesList">
+      <div className="movies-list">
         <MovieTitle
           imageUrl="https://m.media-amazon.com/images/S/pv-target-images/c8d3558dfe682e8a8c5d797623548e1fc85b45a7bc7a6fa25799940012532f53.jpg"
           movieName="Eat Pray Love"
@@ -46,15 +43,14 @@ function App() {
           relevantGenres={['Romantic', 'Thrilling']}
           onMovieSelect={movieClickHandler}
         />
-      </div> */}
-      <div className="genreWithSortContainer">
+      </div>
+      <div className="genre-with-sort-container">
         <GenreSelect
           genreList={genreList}
           selectedGenre={selectedGenre}
           onSelect={onSelectGenre}
         />
         <SortControl
-          sortOptions={movieSortOptions}
           defaultSelection={selectedSortOption}
           onSelect={onSelectSortOption}
         />

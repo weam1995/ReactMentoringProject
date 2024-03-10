@@ -1,5 +1,5 @@
-import './searchForm.css';
-import { useState, useRef, FormEvent } from 'react';
+import './search-form.css';
+import { useRef } from 'react';
 
 interface SearchFormProps {
   initialSearchQuery: string;
@@ -15,16 +15,16 @@ const SearchForm = ({ initialSearchQuery, onSearch }: SearchFormProps) => {
   };
 
   return (
-    <form className="formContainer" onSubmit={handleSubmit}>
+    <form className="form-container" onSubmit={handleSubmit}>
       <input
         id="searchInput"
         type="text"
         ref={inputElement}
-        className="searchInput"
+        className="form__input"
         placeholder="What are you looking for ?"
         defaultValue={initialSearchQuery}
       />
-      <button type="submit" className="searchButton">
+      <button type="submit" className="form__submit-button">
         Search
       </button>
     </form>

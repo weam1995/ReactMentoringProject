@@ -1,4 +1,4 @@
-.pageLayout {
+.page-layout {
   background: #232323;
   top: 0px;
   left: 0px;
@@ -15,7 +15,7 @@
   height: 30%;
 }
 
-.moviesList {
+.movies-list {
   width: 95%;
   border-color: red;
   min-height: fit-content;
@@ -23,7 +23,7 @@
   color: #ffffff;
 }
 
-.boarderRectangle {
+.border-rectangle {
   width: 95%;
   height: 10px;
   background: #888888;
@@ -39,7 +39,7 @@
 .red {
   color: #f65261;
 }
-.genreWithSortContainer {
+.genre-with-sort-container {
   display: inline-flex;
   justify-content: space-between;
   align-self: normal;

@@ -3,20 +3,20 @@
   flex-direction: column;
   width: 20%;
 }
-.movieImg {
+.movie-img {
   height: 40vh;
   width: 100%;
 }
-.movieInfo {
+.movie-info {
   display: flex;
   flex-wrap: wrap;
   /* gap: 20px; */
 }
-.info {
+.movie-info__elem {
   flex: 1 1 40%;
   margin: 0;
   align-items: flex-start;
 }
-.withBorder {
+.with-border {
   border: 1px solid white;
 }

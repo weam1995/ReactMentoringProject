@@ -1,9 +1,9 @@
-.formContainer {
+.form-container {
   display: flex;
   flex-direction: row;
 }
 
-.searchInput {
+.form__input {
   background-color: rgba(50, 50, 50, 0.800000011920929);
   height: 57px;
   width: 713px;
@@ -21,7 +21,7 @@
   color: #ffffff;
 }
 
-.searchButton {
+.form__submit-button {
   height: 57px;
   width: 233px;
   padding: 0px;

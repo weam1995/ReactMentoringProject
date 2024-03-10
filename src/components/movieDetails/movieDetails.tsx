@@ -1,6 +1,6 @@
-import './movieDetails.css';
+import './movie-details.css';
 
-interface MovieDetailsProps {
+export interface MovieDetailsProps {
   imageUrl: string;
   movieName: string;
   releaseYear: number;
@@ -9,28 +9,45 @@ interface MovieDetailsProps {
   description: string;
 }
 
-const MovieDetails = (props: MovieDetailsProps) => {
-  const formatDuration = () => {
-    const hours = Math.floor(props.duration / 60);
-    const remainingMinutes = props.duration % 60;
-    return `${hours ? `${hours}h` : ''}${
-      remainingMinutes ? ` ${remainingMinutes}min` : ''
-    }`;
+const MovieDetails = ({
+  imageUrl,
+  movieName,
+  releaseYear,
+  rating,
+  duration,
+  description,
+}: MovieDetailsProps) => {
+  const defaultDuration = '0h';
+  const formatDuration = (durationInMinutes: number) => {
+    if (durationInMinutes && durationInMinutes > 0) {
+      const hours = Math.floor(durationInMinutes / 60);
+      const remainingMinutes = durationInMinutes % 60;
+      return `${hours ? `${hours}h` : ''}${
+        remainingMinutes ? ` ${remainingMinutes}min` : ''
+      }`;
+    }
+    return defaultDuration;
   };
   return (
-    <div className="movieDetailsConntainer">
-      <img className="movieDetailsImg" src={props.imageUrl} />
-      <div className="movieDetails">
-        <div className="inline-Container">
-          <h2 className="inline-item white">{props.movieName}</h2>
-          <span className="inline-item rating">{props.rating}</span>
+    <div className="movie-details-container">
+      <img className="movie-details-img" src={imageUrl} alt={movieName} />
+      <div className="movie-details">
+        <div className="inline-container">
+          <h2 className="inline-item white">{movieName}</h2>
+          <span data-testid="rating" className="inline-item rating">
+            {rating}
+          </span>
         </div>
         <div className="inline-container red">
-          <span className="inline-item">{props.releaseYear}</span>
-          <span className="inline-item">{formatDuration()}</span>
+          <span data-testid="releaseYear" className="inline-item">
+            {releaseYear}
+          </span>
+          <span data-testid="duration" className="inline-item">
+            {formatDuration(duration)}
+          </span>
         </div>
-        <div className="inline-Container">
-          <span>{props.description}</span>
+        <div className="inline-container">
+          <p data-testid="description">{description}</p>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-.movieDetailsConntainer {
+.movie-details-container {
   display: flex;
   flex-direction: row;
   margin: 5vh;
@@ -13,11 +13,11 @@
   font-style: normal;
   /* width: 95%; */
 }
-.movieDetails {
+.movie-details {
   text-align: justify;
   color: white;
 }
-.movieDetailsImg {
+.movie-details-img {
   width: 400px;
   height: 300px;
 }

@@ -1,4 +1,4 @@
-.genreList {
+.genre-list {
   list-style: none;
   display: flex;
   flex-direction: row;
@@ -7,7 +7,7 @@
   width: 50%;
 }
 
-.genreListItem {
+.genre-list__item {
   color: #ffffff;
   width: 125px;
   height: 50px;
@@ -25,6 +25,6 @@
   }
 }
 
-.selectedItem {
+.selected-item {
   color: red;
 }

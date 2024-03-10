@@ -1,25 +1,41 @@
-import './movieTitle.css';
+import './movie-title.css';
 
-interface MovieTitleProps {
+export interface MovieTitleProps {
   imageUrl: string;
   movieName: string;
   releaseYear: number;
   relevantGenres: Genre[];
-  onMovieSelect: () => void;
+  onMovieSelect: (e: React.MouseEvent<HTMLImageElement>) => void;
 }
 
-const MovieTitle = (props: MovieTitleProps) => {
+const MovieTitle = ({
+  imageUrl,
+  movieName,
+  releaseYear,
+  relevantGenres,
+  onMovieSelect,
+}: MovieTitleProps) => {
+  const formatRelevantGenres = (genreList: string[]) =>
+    genreList.length > 0 ? genreList.join(' & ') : '';
+
   return (
     <div className="movie">
       <img
-        className="movieImg"
-        src={props.imageUrl}
-        onClick={props.onMovieSelect}
+        className="movie-img"
+        src={imageUrl}
+        alt={movieName}
+        onClickCapture={onMovieSelect}
       />
-      <div className="movieInfo">
-        <h5 className="info">{props.movieName}</h5>
-        <h5 className="info withBorder">{props.releaseYear}</h5>
-        <h5 className="info">{props.relevantGenres.join(' & ')}</h5>
+      <div className="movie-info">
+        <h5 data-testid="movieName" className="movie-info__elem">
+          {movieName}
+        </h5>
+        <h5 data-testid="releaseYear" className="movie-info__elem with-border ">
+          {releaseYear}
+        </h5>
+        <h5 data-testid="relatedGenres" className="movie-info__elem">
+          {formatRelevantGenres(relevantGenres)}
+        </h5>
       </div>
     </div>
   );
