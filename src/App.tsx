@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import Counter from './components/counter/Counter';
-import Header from './components/header/header';
-import GenreSelect from './components/genreSelect/genreSelect';
+import Counter from './components/Counter/Counter';
+import Header from './components/Header/Header';
+import GenreSelect from './components/GenreSelect/GenreSelect';
 import './App.css';
 
 function App() {

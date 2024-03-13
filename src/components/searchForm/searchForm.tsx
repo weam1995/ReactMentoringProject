@@ -1,5 +1,5 @@
 import './searchForm.css';
-import { useState, useRef, FormEvent } from 'react';
+import { useRef } from 'react';
 
 interface SearchFormProps {
   initialSearchQuery: string;
