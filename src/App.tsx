@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Counter from './components/counter/counter';
+import Counter from './components/counter/Counter';
 import Header from './components/header/header';
 import GenreSelect from './components/genreSelect/genreSelect';
 import './App.css';

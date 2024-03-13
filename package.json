@@ -9,7 +9,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "vitest",
-    "dev-and-cypress": "concurrently \"npm run dev\" \"cypress open --project . --config-file cypress.config.js --browser chrome\""
+    "dev-and-cypress": "concurrently \"npm run dev\" \"cypress open --project . --config-file cypress.config.ts --browser chrome\""
   },
   "dependencies": {
     "@jest/globals": "^29.7.0",
