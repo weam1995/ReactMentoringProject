@@ -1,4 +1,4 @@
-import SearchForm from '../searchForm/SearchForm';
+import SearchForm from '../SearchForm/SearchForm';
 
 const Header = () => {
   const handleSearch = (inputData: string) => {

@@ -24,7 +24,7 @@ const MovieTitle = ({
         className="movie-img"
         src={imageUrl}
         alt={movieName}
-        onClickCapture={onMovieSelect}
+        onClick={onMovieSelect}
       />
       <div className="movie-info">
         <h5 data-testid="movieName" className="movie-info__elem">

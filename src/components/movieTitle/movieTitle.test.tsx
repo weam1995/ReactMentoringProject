@@ -6,7 +6,7 @@ import { vi } from 'vitest';
 
 let renderedComponent: RenderResult;
 let onSelectMovieHandler: Mock<any, void>;
-describe('Show movie information tests', () => {
+describe('Test suite for MovieTitle Component', () => {
   beforeEach(() => {
     onSelectMovieHandler = vi.fn();
     renderedComponent = render(

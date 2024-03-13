@@ -5,7 +5,7 @@ import user from '@testing-library/user-event';
 import { vi } from 'vitest';
 
 let genreList: Genre[];
-describe('Genre Select tests', () => {
+describe('Test suite for GenreList Component', () => {
   beforeEach(() => {
     genreList = ['Horror', 'Comedy', 'Romantic'];
   });

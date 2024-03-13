@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import Counter from './components/counter/Counter';
-import Header from './components/header/Header';
-import GenreSelect from './components/genreSelect/GenreSelect';
+import Counter from './components/Counter/Counter';
+import Header from './components/Header/Header';
+import GenreSelect from './components/GenreSelect/GenreSelect';
 import './App.css';
-import MovieTitle from './components/movieTitle/MovieTitle';
-import MovieDetails from './components/movieDetails/MovieDetails';
-import SortControl from './components/sortControl/SortControl';
+import MovieTitle from './components/MovieTitle/MovieTitle';
+import MovieDetails from './components/MovieDetails/MovieDetails';
+import SortControl from './components/SortControl/SortControl';
 
 function App() {
   const genreList: Genre[] = ['Horror', 'Romantic', 'Thrilling', 'Comedy'];
@@ -26,12 +26,17 @@ function App() {
   return (
     <div className="page-layout">
       <Counter initialValue={1} />
-      <Header />
-      <div className="genreContainer">
+      {/* <Header /> */}
+
+      <div className="genre-with-sort-container">
         <GenreSelect
           genreList={genreList}
           selectedGenre={selectedGenre}
           onSelect={onSelectGenre}
+        />
+        <SortControl
+          defaultSelection={selectedSortOption}
+          onSelect={onSelectSortOption}
         />
       </div>
 
@@ -42,17 +47,6 @@ function App() {
           releaseYear={2010}
           relevantGenres={['Romantic', 'Thrilling']}
           onMovieSelect={movieClickHandler}
-        />
-      </div>
-      <div className="genre-with-sort-container">
-        <GenreSelect
-          genreList={genreList}
-          selectedGenre={selectedGenre}
-          onSelect={onSelectGenre}
-        />
-        <SortControl
-          defaultSelection={selectedSortOption}
-          onSelect={onSelectSortOption}
         />
       </div>
 

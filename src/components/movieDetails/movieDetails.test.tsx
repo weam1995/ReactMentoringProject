@@ -4,7 +4,7 @@ import MovieDetails from './MovieDetails';
 
 let renderedComponent: RenderResult;
 
-describe('View component details tests', () => {
+describe('Test suite for MovieDetails Component', () => {
   beforeEach(() => {
     renderedComponent = render(
       <MovieDetails
