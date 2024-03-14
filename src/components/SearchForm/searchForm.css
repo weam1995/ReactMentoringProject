@@ -1,0 +1,40 @@
+.formContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.searchInput {
+  background-color: rgba(50, 50, 50, 0.800000011920929);
+  height: 57px;
+  width: 713px;
+  filter: drop-shadow(
+    0px 4px 0px
+      rgba(
+        0.9647058844566345,
+        0.32156863808631897,
+        0.3803921639919281,
+        0.6537641882896423
+      )
+  );
+  border-radius: 4px;
+  border: 0px solid #969696;
+  color: #ffffff;
+}
+
+.searchButton {
+  height: 57px;
+  width: 233px;
+  padding: 0px;
+  border-style: hidden;
+  outline: none;
+  background: #f65261;
+  border-radius: 4px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+}
