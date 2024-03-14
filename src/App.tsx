@@ -10,7 +10,6 @@ import SortControl from './components/SortControl/SortControl';
 function App() {
   const genreList: Genre[] = ['Horror', 'Romantic', 'Thrilling', 'Comedy'];
   const movieSortOptions: movieSortOption[] = ['Release Date', 'Title'];
-
   const [selectedGenre, setSelectedGenre] = useState(genreList[0]);
   const [selectedSortOption, setSelectedSortOption] = useState(
     movieSortOptions[0]
@@ -22,6 +21,7 @@ function App() {
     setSelectedSortOption(sortOption);
   };
   const movieClickHandler = (e: React.MouseEvent<HTMLImageElement>) => {};
+
 
   return (
     <div className="page-layout">

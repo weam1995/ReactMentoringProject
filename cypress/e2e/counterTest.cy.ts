@@ -1,5 +1,5 @@
 describe('template spec', () => {
-  it('passes', () => {
+  it('Check component increments and decrements correctly', () => {
     cy.visit('http://localhost:5173/');
     cy.get('h1').should('contain', 1);
     cy.contains('button', 'Increment Counter');

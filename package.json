@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "test": "vitest",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "dev-and-cypress": "concurrently \"npm run dev\" \"cypress open --project . --config-file cypress.config.ts --browser chrome\""
   },
   "dependencies": {
     "@jest/globals": "^29.7.0",
@@ -19,6 +20,7 @@
     "@types/node": "^20.11.20",
     "@vitejs/plugin-react": "^4.2.1",
     "prop-types": "^15.8.1",
+    "concurrently": "^8.2.2",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.1",
     "react-dom": "^18.2.0",
