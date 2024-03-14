@@ -8,7 +8,7 @@ const meta: Meta<typeof GenreSelect> = {
 };
 export default meta;
 type Story = StoryObj<typeof meta>;
-const genreList: Genre[] = ['Horror', 'Romantic', 'Thrilling'];
+const genreList: Genre[] = ['All','Horror', 'Romantic', 'Thrilling'];
 
 export const EmptyGenreList: Story = {
   args: {
@@ -22,7 +22,7 @@ export const NoDefaultGenreSelected: Story = {
   args: {
     genreList: genreList,
     selectedGenre: undefined,
-    onSelect: (genre) => console.log('Genre Selected ' + genre),
+    onSelect: ((genre) => console.log('Genre Selected ' + genre))
   },
 };
 

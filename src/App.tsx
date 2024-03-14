@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Counter from './components/Counter/Counter';
-import Header from './components/Header/Header';
+// import Header from './components/Header/Header';
 import GenreSelect from './components/GenreSelect/GenreSelect';
 import './App.css';
 import MovieTitle from './components/MovieTitle/MovieTitle';
@@ -8,12 +8,17 @@ import MovieDetails from './components/MovieDetails/MovieDetails';
 import SortControl from './components/SortControl/SortControl';
 
 function App() {
-  const genreList: Genre[] = ['Horror', 'Romantic', 'Thrilling', 'Comedy'];
+  const genreList: Genre[] = ['All','Horror', 'Romantic', 'Thrilling', 'Comedy'];
   const movieSortOptions: movieSortOption[] = ['Release Date', 'Title'];
   const [selectedGenre, setSelectedGenre] = useState(genreList[0]);
   const [selectedSortOption, setSelectedSortOption] = useState(
     movieSortOptions[0]
   );
+  useEffect(()=>{
+    if(!selectedGenre){
+      setSelectedGenre('All');
+    }
+  },[])
   const onSelectGenre = (genre: Genre) => {
     setSelectedGenre(genre);
   };
@@ -21,7 +26,6 @@ function App() {
     setSelectedSortOption(sortOption);
   };
   const movieClickHandler = (e: React.MouseEvent<HTMLImageElement>) => {};
-
 
   return (
     <div className="page-layout">

@@ -1,2 +1,2 @@
-type Genre = 'Horror' | 'Romantic' | 'Thrilling' | 'Comedy';
+type Genre = 'All'|'Horror' | 'Romantic' | 'Thrilling' | 'Comedy';
 type movieSortOption = 'Release Date' | 'Title';
