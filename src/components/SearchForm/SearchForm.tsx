@@ -1,4 +1,4 @@
-import './searchForm.css';
+import './search-form.css';
 import { useRef } from 'react';
 
 interface SearchFormProps {

@@ -1,4 +1,4 @@
-import './genreSelect.css';
+import './genre-select.css';
 interface GenreSelectProps {
   genreList: Genre[];
   selectedGenre: string;
