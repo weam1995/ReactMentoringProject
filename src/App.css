@@ -1,4 +1,4 @@
-.pageLayout {
+.page-layout {
   background: #232323;
   top: 0px;
   left: 0px;
@@ -15,17 +15,33 @@
   height: 30%;
 }
 
-.moviesList {
+.movies-list {
   width: 95%;
   border-color: red;
   min-height: fit-content;
-  background-color: wheat;
+  background-color: #232323;
+  color: #ffffff;
 }
 
-.boarderRectangle {
+.border-rectangle {
   width: 95%;
   height: 10px;
   background: #888888;
   mix-blend-mode: normal;
   opacity: 0.5;
+}
+.white {
+  color: white;
+}
+.gray {
+  color: #555555;
+}
+.red {
+  color: #f65261;
+}
+.genre-with-sort-container {
+  display: inline-flex;
+  justify-content: space-between;
+  align-self: normal;
+  width: 95%;
 }

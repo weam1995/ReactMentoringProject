@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest';
-import { screen, render, fireEvent, waitFor } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
 import SearchForm from './SearchForm';
-import user, { userEvent } from '@testing-library/user-event';
+import user from '@testing-library/user-event';
 import { vi } from 'vitest';
 
 let initialSearchQuery: string;

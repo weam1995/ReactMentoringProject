@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import { screen, render } from '@testing-library/react';
-import Counter from './counter';
+import Counter from './Counter';
 import user from '@testing-library/user-event';
 describe('Counter', () => {
   test('check component renders correctly', () => {
