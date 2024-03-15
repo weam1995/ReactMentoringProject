@@ -1,7 +1,7 @@
 import './genre-select.css';
 interface GenreSelectProps {
   genreList: Genre[];
-  selectedGenre: Genre;
+  selectedGenre?: Genre;
   onSelect: (genre: Genre) => void;
 }
 
@@ -10,6 +10,9 @@ const GenreSelect = ({
   selectedGenre,
   onSelect,
 }: GenreSelectProps) => {
+  if(!selectedGenre){
+    selectedGenre = 'All';
+  }
   return (
     <ul className="genre-list">
       {genreList.map((genre) => {

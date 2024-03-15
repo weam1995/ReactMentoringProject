@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import {useState } from 'react';
 import Counter from './components/Counter/Counter';
-// import Header from './components/Header/Header';
+//import Header from './components/Header/Header';
 import GenreSelect from './components/GenreSelect/GenreSelect';
 import './App.css';
 import MovieTitle from './components/MovieTitle/MovieTitle';
@@ -14,11 +14,6 @@ function App() {
   const [selectedSortOption, setSelectedSortOption] = useState(
     movieSortOptions[0]
   );
-  useEffect(()=>{
-    if(!selectedGenre){
-      setSelectedGenre('All');
-    }
-  },[])
   const onSelectGenre = (genre: Genre) => {
     setSelectedGenre(genre);
   };

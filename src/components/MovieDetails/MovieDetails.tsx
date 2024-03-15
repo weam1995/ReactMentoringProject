@@ -17,16 +17,17 @@ const MovieDetails = ({
   duration,
   description,
 }: MovieDetailsProps) => {
-  const defaultDuration = '0h';
-  const formatDuration = (durationInMinutes: number) => {
-    if (durationInMinutes && durationInMinutes > 0) {
+
+  const formatDuration = (durationInMinutes: number = 0) => {
+    if (durationInMinutes >= 0) {
       const hours = Math.floor(durationInMinutes / 60);
       const remainingMinutes = durationInMinutes % 60;
-      return `${hours ? `${hours}h` : ''}${
+      console.log(`${hours}h`);
+      return `${`${hours}h`}${
         remainingMinutes ? ` ${remainingMinutes}min` : ''
       }`;
     }
-    return defaultDuration;
+   return;
   };
   return (
     <div className="movie-details-container">

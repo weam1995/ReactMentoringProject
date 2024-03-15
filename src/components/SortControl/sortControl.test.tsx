@@ -1,5 +1,5 @@
-import { describe, expect, test } from 'vitest';
-import { render, RenderResult } from '@testing-library/react';
+import { describe, expect, test, Mock } from 'vitest';
+import { render, RenderResult} from '@testing-library/react';
 import SortControl from './SortControl';
 import user from '@testing-library/user-event';
 import { vi } from 'vitest';
