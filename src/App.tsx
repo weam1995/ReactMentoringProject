@@ -1,6 +1,6 @@
 import {useState } from 'react';
-import Counter from './components/Counter/Counter';
-//import Header from './components/Header/Header';
+// import Counter from './components/Counter/Counter';
+import Header from './components/Header/Header';
 import GenreSelect from './components/GenreSelect/GenreSelect';
 import './App.css';
 import MovieTitle from './components/MovieTitle/MovieTitle';
@@ -24,8 +24,8 @@ function App() {
   const getReleaseYear = (releaseDate:string) => new Date(releaseDate).getFullYear();
   return (
     <div className="page-layout">
-      <Counter initialValue={1} />
-      {/* <Header /> */}
+      {/* <Counter initialValue={1} /> */}
+      <Header />
 
       <div className="genre-with-sort-container">
         <GenreSelect

@@ -7,12 +7,9 @@ interface GenreSelectProps {
 
 const GenreSelect = ({
   genreList,
-  selectedGenre,
+  selectedGenre = 'All',
   onSelect,
 }: GenreSelectProps) => {
-  if(!selectedGenre){
-    selectedGenre = 'All';
-  }
   return (
     <ul className="genre-list">
       {genreList.map((genre) => {
