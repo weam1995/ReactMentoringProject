@@ -1,0 +1,32 @@
+.movie-form-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  label {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height */
+    letter-spacing: 0.888889px;
+    text-transform: uppercase;
+
+    color: #f65261;
+
+    mix-blend-mode: normal;
+    opacity: 0.8;
+  }
+  input {
+    height: 2rem;
+    background: rgba(50, 50, 50, 0.948044);
+    mix-blend-mode: normal;
+    opacity: 0.8;
+    border-radius: 4px;
+  }
+}
