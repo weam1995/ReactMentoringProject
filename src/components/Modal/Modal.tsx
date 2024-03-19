@@ -23,10 +23,6 @@ const Modal = ({ title, children, closeModalHandler }: ModalProps) => {
           />
         </header>
         <main className="modal-content">{children}</main>
-        <footer className="modal-footer">
-          <button className="submit">Submit</button>
-          <button className="reset">Reset</button>
-        </footer>
       </div>
     </div>,
     modalRootElement

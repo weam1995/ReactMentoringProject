@@ -20,7 +20,8 @@ const Header = () => {
 
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
-  const submitMovie = () => {
+  const submitMovie = (e: any) => {
+    console.log(e.value);
     console.log("Movie submitted");
   };
   return (
