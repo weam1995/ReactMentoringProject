@@ -11,7 +11,7 @@ interface MovieFormProps {
 }
 interface Option {
   label: string;
-  value: string;
+  value: Genre;
 }
 const MovieForm = ({ movie, onSubmitHandler }: MovieFormProps) => {
   const genreList: Genre[] = ["Horror", "Romantic", "Thrilling", "Comedy"];
@@ -23,18 +23,24 @@ const MovieForm = ({ movie, onSubmitHandler }: MovieFormProps) => {
     );
     return optionsList;
   };
-  const getSelectedOptionsList = (selectedGenres: Genre[]) => {
-    let selectedOptionsList: Option[] = [];
-    selectedGenres.map((genre: Genre) => {
-      selectedOptionsList.push(options.filter((x) => x.label == genre)[0]);
+  const getSelectOptionsForGenres = (genres: Genre[]) => {
+    let optionsList: Option[] = [];
+    genres.map((genre: Genre) => {
+      optionsList.push(options.filter((x) => x.label == genre)[0]);
     });
-    return selectedOptionsList;
+    return optionsList;
+  };
+
+  const getGenresForSelectOptions = (options: Option[]) => {
+    let genres: Genre[] = [];
+    options.map((option) => genres.push(option.value));
+    return genres;
   };
 
   const [options, setOptions] = useState(getOptionsList(genreList) || []);
 
   const [selectedGenres, setSelectedGenres] = useState(
-    getSelectedOptionsList(movie?.genre || [])
+    getSelectOptionsForGenres(movie?.genre || [])
   );
   const defaultFormData = {
     title: "",
@@ -48,15 +54,33 @@ const MovieForm = ({ movie, onSubmitHandler }: MovieFormProps) => {
   const [formData, setFormData] = useState<MovieProps>(
     movie || defaultFormData
   );
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  useEffect(() => {
+    setFormData({
+      ...formData,
+      genre: getGenresForSelectOptions(selectedGenres),
+    });
+  }, [selectedGenres]);
+
+  const handleInputChange = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
+  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: new Date(value) });
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(formData);
     onSubmitHandler(e);
   };
+
   return (
     <form className="movie-form-container" onSubmit={handleSubmit}>
       <div className="field long-field">
@@ -66,6 +90,7 @@ const MovieForm = ({ movie, onSubmitHandler }: MovieFormProps) => {
           placeholder="Title"
           value={formData.title}
           onChange={handleInputChange}
+          name="title"
         />
       </div>
       <div className="field short-field">
@@ -74,7 +99,8 @@ const MovieForm = ({ movie, onSubmitHandler }: MovieFormProps) => {
           type="date"
           placeholder="Select Date"
           value={formData.releaseDate.toLocaleDateString("en-CA")}
-          onChange={handleInputChange}
+          onChange={handleDateChange}
+          name="releaseDate"
         />
       </div>
       <div className="field long-field">
@@ -84,6 +110,7 @@ const MovieForm = ({ movie, onSubmitHandler }: MovieFormProps) => {
           placeholder="https://"
           value={formData.movieURL}
           onChange={handleInputChange}
+          name="movieURL"
         />
       </div>
       <div className="field short-field">
@@ -92,6 +119,7 @@ const MovieForm = ({ movie, onSubmitHandler }: MovieFormProps) => {
           type="text"
           value={formData.rating}
           onChange={handleInputChange}
+          name="rating"
         />
       </div>
       <div className="field long-field">
@@ -110,11 +138,17 @@ const MovieForm = ({ movie, onSubmitHandler }: MovieFormProps) => {
           placeholder="minutes"
           value={formData.runtime}
           onChange={handleInputChange}
+          name="runtime"
         />
       </div>
       <div className="field overview-field">
         <label>Overview</label>
-        <textarea placeholder="Movie description" value={formData.overview} />
+        <textarea
+          placeholder="Movie description"
+          value={formData.overview}
+          name="overview"
+          onChange={handleInputChange}
+        />
       </div>
       <footer className="modal-footer">
         <button className="submit" type="submit">

@@ -1,5 +1,6 @@
-import './movie-title.css';
-
+import "./movie-title.css";
+import Dropdown from "react-bootstrap/Dropdown";
+import React from "react";
 export interface MovieTitleProps {
   imageUrl: string;
   movieName: string;
@@ -16,7 +17,7 @@ const MovieTitle = ({
   onMovieSelect,
 }: MovieTitleProps) => {
   const formatRelevantGenres = (genreList: string[]) =>
-    genreList.length > 0 ? genreList.join(' & ') : '';
+    genreList.length > 0 ? genreList.join(" & ") : "";
 
   return (
     <div className="movie">
@@ -26,6 +27,16 @@ const MovieTitle = ({
         alt={movieName}
         onClick={onMovieSelect}
       />
+      <Dropdown>
+        <Dropdown.Toggle />
+        <Dropdown.Menu title="">
+          <Dropdown.Header>Options</Dropdown.Header>
+          <Dropdown.Item>abcd</Dropdown.Item>
+          <Dropdown.Item>erty</Dropdown.Item>
+          <Dropdown.Item>hnjm</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+
       <div className="movie-info">
         <h5 data-testid="movieName" className="movie-info__elem">
           {movieName}
