@@ -1,6 +1,8 @@
+import { Dropdown, DropdownItem } from "flowbite-react";
 import "./movie-title.css";
-import Dropdown from "react-bootstrap/Dropdown";
-import React from "react";
+import React, { useState } from "react";
+import DeleteMovieConfirmation from "../DeleteMovieConfirmation/DeleteMovieConfirmation";
+import Modal from "../Modal/Modal";
 export interface MovieTitleProps {
   imageUrl: string;
   movieName: string;
@@ -18,24 +20,31 @@ const MovieTitle = ({
 }: MovieTitleProps) => {
   const formatRelevantGenres = (genreList: string[]) =>
     genreList.length > 0 ? genreList.join(" & ") : "";
-
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
   return (
     <div className="movie">
-      <img
-        className="movie-img"
-        src={imageUrl}
-        alt={movieName}
-        onClick={onMovieSelect}
-      />
-      <Dropdown>
-        <Dropdown.Toggle />
-        <Dropdown.Menu title="">
-          <Dropdown.Header>Options</Dropdown.Header>
-          <Dropdown.Item>abcd</Dropdown.Item>
-          <Dropdown.Item>erty</Dropdown.Item>
-          <Dropdown.Item>hnjm</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
+      <div className="movie-image-container">
+        <img
+          className="movie-img"
+          src={imageUrl}
+          alt={movieName}
+          onClick={onMovieSelect}
+        />
+        <div className="options-dropdown">
+          <button>Edit</button>
+          <button onClick={() => setShowDeleteConfirmation(true)}>
+            Delete
+          </button>
+        </div>
+      </div>
+      {showDeleteConfirmation ? (
+        <Modal
+          title="Delete Movie"
+          closeModalHandler={() => setShowDeleteConfirmation(false)}
+        >
+          <DeleteMovieConfirmation />
+        </Modal>
+      ) : null}
 
       <div className="movie-info">
         <h5 data-testid="movieName" className="movie-info__elem">

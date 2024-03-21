@@ -1,13 +1,11 @@
-import "./movie-form.css";
 interface DeleteMovieConfirmationProps {
-  onSubmitHandler: (e: any) => void;
+  // onSubmitHandler: (e: any) => void;
 }
-const DeleteMovieConfirmation = ({
-  onSubmitHandler,
-}: DeleteMovieConfirmationProps) => {
+const DeleteMovieConfirmation = ({}: //onSubmitHandler,
+DeleteMovieConfirmationProps) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onSubmitHandler(e);
+    // onSubmitHandler(e);
   };
 
   return (
