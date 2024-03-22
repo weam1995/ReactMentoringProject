@@ -1,4 +1,7 @@
-import './movie-title.css';
+import "./movie-title.css";
+import React, { useState } from "react";
+import DeleteMovieModal from "../MovieModals/DeleteMovieModal";
+import EditMovieModal from "../MovieModals/EditMovieModal";
 
 export interface MovieTitleProps {
   imageUrl: string;
@@ -16,16 +19,42 @@ const MovieTitle = ({
   onMovieSelect,
 }: MovieTitleProps) => {
   const formatRelevantGenres = (genreList: string[]) =>
-    genreList.length > 0 ? genreList.join(' & ') : '';
-
+    genreList.length > 0 ? genreList.join(" & ") : "";
+  const [showEditMovieModal, setShowEditMovieModal] = useState(false);
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
+  const deleteMovieHandler = () => {
+    setShowDeleteConfirmation(false);
+  };
+  const editMovieHandler = () => {
+    setShowEditMovieModal(false);
+  };
   return (
     <div className="movie">
-      <img
-        className="movie-img"
-        src={imageUrl}
-        alt={movieName}
-        onClick={onMovieSelect}
+      <div className="movie-image-container">
+        <img
+          className="movie-img"
+          src={imageUrl}
+          alt={movieName}
+          onClick={onMovieSelect}
+        />
+        <div className="options-dropdown">
+          <button onClick={() => setShowEditMovieModal(true)}>Edit</button>
+          <button onClick={() => setShowDeleteConfirmation(true)}>
+            Delete
+          </button>
+        </div>
+      </div>
+      <EditMovieModal
+        showModal={showEditMovieModal}
+        onCloseHandler={() => setShowEditMovieModal(false)}
+        onSubmitHandler={() => editMovieHandler}
       />
+      <DeleteMovieModal
+        showModal={showDeleteConfirmation}
+        onCloseHandler={() => setShowDeleteConfirmation(false)}
+        onSubmitHandler={deleteMovieHandler}
+      />
+
       <div className="movie-info">
         <h5 data-testid="movieName" className="movie-info__elem">
           {movieName}

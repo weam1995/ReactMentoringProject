@@ -1,0 +1,57 @@
+.movie-form-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  label {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height */
+    letter-spacing: 0.888889px;
+    text-transform: uppercase;
+
+    color: #f65261;
+
+    mix-blend-mode: normal;
+    opacity: 0.8;
+  }
+  input {
+    height: 2rem;
+    background: #424242;
+    mix-blend-mode: normal;
+    opacity: 0.8;
+    border-radius: 4px;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 200;
+    font-size: 16px;
+    color: #ffffff;
+  }
+
+  textarea {
+    min-height: 20vh;
+    background: #424242;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 200;
+    font-size: 16px;
+    color: #ffffff;
+  }
+}
+
+.long-field {
+  flex-basis: 60%;
+}
+.short-field {
+  flex-basis: 35%;
+}
+.overview-field {
+  flex-basis: 100%;
+}

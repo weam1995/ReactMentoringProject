@@ -1,4 +1,4 @@
-import './movie-details.css';
+import "./movie-details.css";
 
 export interface MovieDetailsProps {
   imageUrl: string;
@@ -17,17 +17,16 @@ const MovieDetails = ({
   duration,
   description,
 }: MovieDetailsProps) => {
-
   const formatDuration = (durationInMinutes: number = 0) => {
     if (durationInMinutes >= 0) {
       const hours = Math.floor(durationInMinutes / 60);
       const remainingMinutes = durationInMinutes % 60;
       console.log(`${hours}h`);
       return `${`${hours}h`}${
-        remainingMinutes ? ` ${remainingMinutes}min` : ''
+        remainingMinutes ? ` ${remainingMinutes}min` : ""
       }`;
     }
-   return;
+    return;
   };
   return (
     <div className="movie-details-container">

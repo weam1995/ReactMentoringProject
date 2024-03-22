@@ -1,0 +1,13 @@
+.add-movie-button {
+  background: rgba(96, 96, 96, 0.68);
+  border-radius: 4px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: right;
+  text-transform: uppercase;
+  margin-left: 85%;
+  color: #f65261;
+}
