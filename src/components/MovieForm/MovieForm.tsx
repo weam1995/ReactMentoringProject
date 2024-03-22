@@ -1,4 +1,4 @@
-import { SyntheticEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { MovieProps } from "../../interfaces";
 // import { MultiSelect } from "primereact/multiselect";
 import "./movie-form.css";

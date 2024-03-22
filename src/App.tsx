@@ -25,14 +25,13 @@ function App() {
   const onSelectSortOption = (sortOption: movieSortOption) => {
     setSelectedSortOption(sortOption);
   };
-  const movieClickHandler = (e: React.MouseEvent<HTMLImageElement>) => {};
+  const movieClickHandler = () => {};
   const getReleaseYear = (releaseDate: string) =>
     new Date(releaseDate).getFullYear();
   return (
     <div className="page-layout">
       {/* <Counter initialValue={1} /> */}
       <Header />
-
       <div className="genre-with-sort-container">
         <GenreSelect
           genreList={genreList}
