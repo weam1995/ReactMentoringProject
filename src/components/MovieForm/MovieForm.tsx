@@ -37,7 +37,7 @@ const MovieForm = ({ movie, onSubmitHandler }: MovieFormProps) => {
     return genres;
   };
 
-  const [options, setOptions] = useState(getOptionsList(genreList) || []);
+  const [options] = useState(getOptionsList(genreList) || []);
 
   const [selectedGenres, setSelectedGenres] = useState(
     getSelectOptionsForGenres(movie?.genre || [])
